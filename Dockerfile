@@ -2,7 +2,7 @@
 FROM php:5.6-fpm 
 
 # Копирование файлов composer
-COPY composer.lock composer.json /var/www/
+#COPY composer.lock composer.json /var/www/
 
 # Устанавливаем путь для рабочей области
 WORKDIR /var/www
