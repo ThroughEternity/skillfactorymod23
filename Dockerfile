@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -y \
 # Очищаем кеш
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Устанавливаем зависимости докера
+# Устанавливаем зависимости докера базы данных
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 # Установка композера
