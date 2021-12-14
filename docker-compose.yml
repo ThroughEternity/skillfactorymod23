@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: digitalocean.com/php
-    container_name: app # название контейнера
+    container_name: app-${COMPOSE_PROJECT_NAME} # название контейнера
     restart: unless-stopped
     tty: true
     environment:
@@ -23,7 +23,7 @@ services:
   #Nginx Service
   webserver:
     image: nginx:alpine
-    container_name: webserver
+    container_name: webserver-${COMPOSE_PROJECT_NAME}
     restart: unless-stopped
     tty: true
     ports:
@@ -38,7 +38,7 @@ services:
   #MySQL Service
   db:
     image: mysql:5.7.22 # тут можно поставить версию mysql
-    container_name: db
+    container_name: db-${COMPOSE_PROJECT_NAME}
     restart: unless-stopped
     tty: true
     ports:
