@@ -58,7 +58,7 @@ services:
 
     image: phpmyadmin/phpmyadmin
 
-    container_name: pma
+    container_name: pma-${COMPOSE_PROJECT_NAME}
 
     links:
 
