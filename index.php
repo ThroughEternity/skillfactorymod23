@@ -67,12 +67,14 @@ function getPartsFromFullname($fullName){
     return $arrayName;
 }
 print_r(getPartsFromFullname($fullName));
+echo '<br>';
 
 function getShortName ($fullName) {
     $arrName = getPartsFromFullname($fullName);
 
-    return $arrName['name'];
+    return $arrName['name']. ' '.mb_substr($arrName['surname'], 0,1).'.';
 }
 
 echo getShortName($fullName);
 echo '<br>';
+
