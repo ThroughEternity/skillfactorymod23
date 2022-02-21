@@ -78,3 +78,46 @@ function getShortName ($fullName) {
 echo getShortName($fullName);
 echo '<br>';
 
+
+
+function getGenderFromName ($fullNameArray) {
+$surname = $fullNameArray['surname'];
+$name = $fullNameArray['name'];
+$patronomyc = $fullNameArray['patronomyc'];
+$gender = 0;
+
+if(mb_substr($surname, -1) === 'в'){
+$gender = $gender +1;
+
+}elseif(mb_substr($surname, -2) === 'ва'){
+$gender = $gender -1;
+}
+
+if(mb_substr($name, -1) === 'й' || mb_substr($name, -1) === 'н'){
+$gender = $gender +1;
+    
+}elseif(mb_substr($name, -1) === 'а'){
+$gender = $gender -1;
+}
+
+if(mb_substr($patronomyc, -2) === 'ич'){
+$gender = $gender +1;
+    
+}elseif(mb_substr($patronomyc, -3) === 'вна'){
+$gender = $gender -1;
+}
+
+if($genger > 0){
+    return 'мужской пол';
+}elseif($gender < 0){
+    return 'женский пол';
+}else{
+    return 'неопределенный пол';
+}
+}
+
+    
+    
+
+
+
