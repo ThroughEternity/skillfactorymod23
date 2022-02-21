@@ -118,6 +118,22 @@ if($genger > 0){
 
     
     
+function getGenderDescription ($example_persons_array){
+    $male = 0;
+    $female = 0;
+    $wtfName = 0;
 
+    $count = count($example_persons_array);
+
+    foreach($example_persons_array as $key=>$value){
+      $fullNameArray = getPartsFromFullname($value['fullname']);   
+      if(getGenderFromName($fullNameArray) === 'мужской пол'){
+        $male = $male +1;
+    }
+
+
+    }
+
+}
 
 
