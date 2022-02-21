@@ -60,11 +60,11 @@ echo $fullName;
 function getPartsFromFullname($fullName){
     $arrayName = explode(" ", $fullName);
     $surname = $arrayName[0];
+    $name = $arrayName[1];
+    $patronomyc = $arrayName[2];
 
 
-    $arrayName = ['surname'=>$surname,'name'=>$arrayName[1],'patronomyc'=>$arrayName[2]];
+    $arrayName = ['surname'=>$surname,'name'=>$name,'patronomyc'=>$patronomyc];
     return $arrayName;
 }
 
-?>
-<pre><?print_r(getPartsFromFullname($fullName))?></pre>
