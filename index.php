@@ -56,15 +56,23 @@ function getFullnameFromParts($Surname, $first_name,$last_name){
 }
 $fullName = getFullnameFromParts('Иванов', 'Иван','Иваныч');
 echo $fullName;
+echo '<br>';
 
 function getPartsFromFullname($fullName){
     $arrayName = explode(" ", $fullName);
     $surname = $arrayName[0];
     $name = $arrayName[1];
     $patronomyc = $arrayName[2];
-
-
     $arrayName = ['surname'=>$surname,'name'=>$name,'patronomyc'=>$patronomyc];
     return $arrayName;
 }
+print_r(getPartsFromFullname($fullName));
 
+function getShortName ($fullName) {
+    $arrName = getPartsFromFullname($fullName);
+
+    return $arrName['name'];
+}
+
+echo getShortName($fullName);
+echo '<br>';
