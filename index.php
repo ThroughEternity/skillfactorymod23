@@ -107,7 +107,7 @@ $gender = $gender +1;
 $gender = $gender -1;
 }
 
-if($genger > 0){
+if($gender > 0){
     return 'мужской пол';
 }elseif($gender < 0){
     return 'женский пол';
@@ -116,7 +116,8 @@ if($genger > 0){
 }
 }
 
-    
+echo  getGenderFromName(getPartsFromFullname($fullName));
+echo '<br>';    
     
 function getGenderDescription ($example_persons_array){
     $male = 0;
@@ -129,11 +130,27 @@ function getGenderDescription ($example_persons_array){
       $fullNameArray = getPartsFromFullname($value['fullname']);   
       if(getGenderFromName($fullNameArray) === 'мужской пол'){
         $male = $male +1;
+    }elseif(getGenderFromName($fullNameArray) === 'женский пол'){
+    $female = $female +1;
+    }else{
+        $wtfName = $wtfName +1;
     }
 
-
     }
+
+    $malePersent = ($male / $count) * 100;
+    $femalePersent = ($female / $count) * 100;
+    $wtfNamePersent = ($wtfName / $count) * 100;
+    $allPersent = 
+    '
+    Гендерный состав аудитории: <br>
+    --------------------------- <br>
+    Мужчины - '.round($malePersent,1).'% <br>
+    Женщины - '.round($femalePersent,1).'% <br>
+    Не удалось определить - '.round($wtfNamePersent,1).'% <br>
+    ';
+    return $allPersent;
 
 }
 
-
+echo getGenderDescription($example_persons_array);
